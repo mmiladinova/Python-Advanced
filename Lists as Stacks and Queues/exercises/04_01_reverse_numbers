@@ -1,0 +1,10 @@
+input_str = input()
+
+stack = input_str.split(" ")
+reversed_nums_list = []
+
+while stack:
+    value = str(stack.pop())
+    reversed_nums_list.append(value)
+
+print(' '.join(reversed_nums_list))
