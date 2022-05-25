@@ -1,4 +1,4 @@
-Stacks (list as stack) - линейна структура от данни
+Stacks (list as stack) - linear data structure
 Last IN, First OUT - LIFO
 empty stack => stack = []
 
@@ -12,7 +12,7 @@ pop()
 Queues
 First IN, First OUT => FIFO
 collections.deque
-* да се прави проверка дали не е празна опашката *
+* to check that the queue is not empty *
 
 queue = deque()
 
