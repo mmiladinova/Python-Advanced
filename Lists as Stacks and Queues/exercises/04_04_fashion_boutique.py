@@ -12,14 +12,8 @@ while cloths_values_stack:
     if rack_capacity == counter and cloths_values_stack:
         racks_quantity += 1
         counter = 0
-    elif rack_capacity == counter and not cloths_values_stack:
-        counter = 0
     elif counter > rack_capacity:
         racks_quantity += 1
         counter = cloth_value
 
 print(racks_quantity)
-
-
-
-
