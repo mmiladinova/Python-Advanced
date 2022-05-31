@@ -1,32 +1,28 @@
 parentheses_input = input()
 parentheses_list = [str(x) for x in parentheses_input]
-parentheses_stack = []
+opening_brackets_stack = []
+
+pairs = {
+    "(": ")",
+    "{": "}",
+    "[": "]"
+}
 
 is_balanced = True
-for index in range(len(parentheses_list)):
-    if parentheses_list[index] == '(':
-        parentheses_stack.append([parentheses_list[index], index])
-    elif parentheses_list[index] == "{":
-        parentheses_stack.append([parentheses_list[index], index])
-    elif parentheses_list[index] == "[":
-        parentheses_stack.append([parentheses_list[index], index])
-    elif parentheses_list[index] == ')':
-        opening_parenthesis = parentheses_stack.pop()[0]
-        if opening_parenthesis != '(':
+for ch in parentheses_list:
+    if ch in "({[":
+        opening_brackets_stack.append(ch)
+    elif not opening_brackets_stack:
+        is_balanced = False
+    else:
+        last_opening_bracket = opening_brackets_stack.pop()
+        if pairs[last_opening_bracket] != ch:
             is_balanced = False
-            break
-    elif parentheses_list[index] == '}':
-        opening_parenthesis = parentheses_stack.pop()[0]
-        if opening_parenthesis != '{':
-            is_balanced = False
-            break
-    elif parentheses_list[index] == ']':
-        opening_parenthesis = parentheses_stack.pop()[0]
-        if opening_parenthesis != '[':
-            is_balanced = False
-            break
 
-if is_balanced:
+    if not is_balanced:
+        break
+
+if is_balanced and len(opening_brackets_stack) == 0:
     print("YES")
 else:
     print("NO")
