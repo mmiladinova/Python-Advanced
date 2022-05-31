@@ -1,5 +1,4 @@
 parentheses_input = input()
-parentheses_list = [str(x) for x in parentheses_input]
 opening_brackets_stack = []
 
 pairs = {
